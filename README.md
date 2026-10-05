@@ -39,7 +39,7 @@ end
 ### Swift Package Manager
 
 ```swift
-.package(url: "https://github.com/your-org/KhmerAmountSpeech.git", from: "1.0.0")
+.package(url: "https://github.com/many-pichr/ios-amount-tts.git", from: "1.0.0")
 ```
 
 Requires iOS 13 or later and Swift 5.9 or later.
