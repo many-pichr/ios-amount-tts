@@ -1,0 +1,485 @@
+{
+  "version": "c3654b096028",
+  "lang": "km",
+  "generatedAt": "2026-10-05T06:28:35.698Z",
+  "provider": "edge",
+  "voice": "km-KH-SreymomNeural",
+  "assets": {
+    "number:0": {
+      "path": "/audio/km/numbers/0.mp3",
+      "bytes": 5686,
+      "durationMs": 404,
+      "source": "generated",
+      "provider": "edge"
+    },
+    "number:1": {
+      "path": "/audio/km/numbers/1.mp3",
+      "bytes": 5059,
+      "durationMs": 353,
+      "source": "generated",
+      "provider": "edge"
+    },
+    "number:2": {
+      "path": "/audio/km/numbers/2.mp3",
+      "bytes": 4119,
+      "durationMs": 277,
+      "source": "generated",
+      "provider": "edge"
+    },
+    "number:3": {
+      "path": "/audio/km/numbers/3.mp3",
+      "bytes": 4432,
+      "durationMs": 304,
+      "source": "generated",
+      "provider": "edge"
+    },
+    "number:4": {
+      "path": "/audio/km/numbers/4.mp3",
+      "bytes": 5059,
+      "durationMs": 355,
+      "source": "generated",
+      "provider": "edge"
+    },
+    "number:5": {
+      "path": "/audio/km/numbers/5.mp3",
+      "bytes": 5686,
+      "durationMs": 414,
+      "source": "generated",
+      "provider": "edge"
+    },
+    "number:6": {
+      "path": "/audio/km/numbers/6.mp3",
+      "bytes": 8194,
+      "durationMs": 606,
+      "source": "generated",
+      "provider": "edge"
+    },
+    "number:7": {
+      "path": "/audio/km/numbers/7.mp3",
+      "bytes": 8194,
+      "durationMs": 626,
+      "source": "generated",
+      "provider": "edge"
+    },
+    "number:8": {
+      "path": "/audio/km/numbers/8.mp3",
+      "bytes": 7880,
+      "durationMs": 600,
+      "source": "generated",
+      "provider": "edge"
+    },
+    "number:9": {
+      "path": "/audio/km/numbers/9.mp3",
+      "bytes": 8507,
+      "durationMs": 632,
+      "source": "generated",
+      "provider": "edge"
+    },
+    "number:10": {
+      "path": "/audio/km/numbers/10.mp3",
+      "bytes": 2865,
+      "durationMs": 171,
+      "source": "generated",
+      "provider": "edge"
+    },
+    "number:20": {
+      "path": "/audio/km/numbers/20.mp3",
+      "bytes": 7253,
+      "durationMs": 524,
+      "source": "generated",
+      "provider": "edge"
+    },
+    "number:30": {
+      "path": "/audio/km/numbers/30.mp3",
+      "bytes": 6940,
+      "durationMs": 500,
+      "source": "generated",
+      "provider": "edge"
+    },
+    "number:40": {
+      "path": "/audio/km/numbers/40.mp3",
+      "bytes": 6626,
+      "durationMs": 477,
+      "source": "generated",
+      "provider": "edge"
+    },
+    "number:50": {
+      "path": "/audio/km/numbers/50.mp3",
+      "bytes": 6313,
+      "durationMs": 446,
+      "source": "generated",
+      "provider": "edge"
+    },
+    "number:60": {
+      "path": "/audio/km/numbers/60.mp3",
+      "bytes": 5686,
+      "durationMs": 407,
+      "source": "generated",
+      "provider": "edge"
+    },
+    "number:70": {
+      "path": "/audio/km/numbers/70.mp3",
+      "bytes": 5999,
+      "durationMs": 431,
+      "source": "generated",
+      "provider": "edge"
+    },
+    "number:80": {
+      "path": "/audio/km/numbers/80.mp3",
+      "bytes": 6313,
+      "durationMs": 467,
+      "source": "generated",
+      "provider": "edge"
+    },
+    "number:90": {
+      "path": "/audio/km/numbers/90.mp3",
+      "bytes": 5686,
+      "durationMs": 415,
+      "source": "generated",
+      "provider": "edge"
+    },
+    "unit:hundred": {
+      "path": "/audio/km/units/hundred.mp3",
+      "bytes": 5059,
+      "durationMs": 341,
+      "source": "generated",
+      "provider": "edge"
+    },
+    "unit:thousand": {
+      "path": "/audio/km/units/thousand.mp3",
+      "bytes": 4746,
+      "durationMs": 329,
+      "source": "generated",
+      "provider": "edge"
+    },
+    "unit:ten-thousand": {
+      "path": "/audio/km/units/ten-thousand.mp3",
+      "bytes": 5686,
+      "durationMs": 393,
+      "source": "generated",
+      "provider": "edge"
+    },
+    "unit:hundred-thousand": {
+      "path": "/audio/km/units/hundred-thousand.mp3",
+      "bytes": 6626,
+      "durationMs": 475,
+      "source": "generated",
+      "provider": "edge"
+    },
+    "unit:million": {
+      "path": "/audio/km/units/million.mp3",
+      "bytes": 5373,
+      "durationMs": 375,
+      "source": "generated",
+      "provider": "edge"
+    },
+    "compound:100": {
+      "path": "/audio/km/compounds/100.mp3",
+      "bytes": 7880,
+      "durationMs": 576,
+      "source": "generated",
+      "provider": "edge"
+    },
+    "compound:200": {
+      "path": "/audio/km/compounds/200.mp3",
+      "bytes": 6626,
+      "durationMs": 490,
+      "source": "generated",
+      "provider": "edge"
+    },
+    "compound:300": {
+      "path": "/audio/km/compounds/300.mp3",
+      "bytes": 6940,
+      "durationMs": 504,
+      "source": "generated",
+      "provider": "edge"
+    },
+    "compound:400": {
+      "path": "/audio/km/compounds/400.mp3",
+      "bytes": 7567,
+      "durationMs": 573,
+      "source": "generated",
+      "provider": "edge"
+    },
+    "compound:500": {
+      "path": "/audio/km/compounds/500.mp3",
+      "bytes": 8194,
+      "durationMs": 624,
+      "source": "generated",
+      "provider": "edge"
+    },
+    "compound:600": {
+      "path": "/audio/km/compounds/600.mp3",
+      "bytes": 10702,
+      "durationMs": 828,
+      "source": "generated",
+      "provider": "edge"
+    },
+    "compound:700": {
+      "path": "/audio/km/compounds/700.mp3",
+      "bytes": 10388,
+      "durationMs": 790,
+      "source": "generated",
+      "provider": "edge"
+    },
+    "compound:800": {
+      "path": "/audio/km/compounds/800.mp3",
+      "bytes": 10388,
+      "durationMs": 806,
+      "source": "generated",
+      "provider": "edge"
+    },
+    "compound:900": {
+      "path": "/audio/km/compounds/900.mp3",
+      "bytes": 10702,
+      "durationMs": 826,
+      "source": "generated",
+      "provider": "edge"
+    },
+    "compound:1000": {
+      "path": "/audio/km/compounds/1000.mp3",
+      "bytes": 7880,
+      "durationMs": 595,
+      "source": "generated",
+      "provider": "edge"
+    },
+    "compound:2000": {
+      "path": "/audio/km/compounds/2000.mp3",
+      "bytes": 7567,
+      "durationMs": 572,
+      "source": "generated",
+      "provider": "edge"
+    },
+    "compound:3000": {
+      "path": "/audio/km/compounds/3000.mp3",
+      "bytes": 7880,
+      "durationMs": 599,
+      "source": "generated",
+      "provider": "edge"
+    },
+    "compound:4000": {
+      "path": "/audio/km/compounds/4000.mp3",
+      "bytes": 8194,
+      "durationMs": 612,
+      "source": "generated",
+      "provider": "edge"
+    },
+    "compound:5000": {
+      "path": "/audio/km/compounds/5000.mp3",
+      "bytes": 8507,
+      "durationMs": 644,
+      "source": "generated",
+      "provider": "edge"
+    },
+    "compound:6000": {
+      "path": "/audio/km/compounds/6000.mp3",
+      "bytes": 10702,
+      "durationMs": 812,
+      "source": "generated",
+      "provider": "edge"
+    },
+    "compound:7000": {
+      "path": "/audio/km/compounds/7000.mp3",
+      "bytes": 11015,
+      "durationMs": 850,
+      "source": "generated",
+      "provider": "edge"
+    },
+    "compound:8000": {
+      "path": "/audio/km/compounds/8000.mp3",
+      "bytes": 11015,
+      "durationMs": 856,
+      "source": "generated",
+      "provider": "edge"
+    },
+    "compound:9000": {
+      "path": "/audio/km/compounds/9000.mp3",
+      "bytes": 11328,
+      "durationMs": 881,
+      "source": "generated",
+      "provider": "edge"
+    },
+    "compound:10000": {
+      "path": "/audio/km/compounds/10000.mp3",
+      "bytes": 7880,
+      "durationMs": 583,
+      "source": "generated",
+      "provider": "edge"
+    },
+    "compound:20000": {
+      "path": "/audio/km/compounds/20000.mp3",
+      "bytes": 7567,
+      "durationMs": 566,
+      "source": "generated",
+      "provider": "edge"
+    },
+    "compound:30000": {
+      "path": "/audio/km/compounds/30000.mp3",
+      "bytes": 7567,
+      "durationMs": 571,
+      "source": "generated",
+      "provider": "edge"
+    },
+    "compound:40000": {
+      "path": "/audio/km/compounds/40000.mp3",
+      "bytes": 7880,
+      "durationMs": 586,
+      "source": "generated",
+      "provider": "edge"
+    },
+    "compound:50000": {
+      "path": "/audio/km/compounds/50000.mp3",
+      "bytes": 8194,
+      "durationMs": 612,
+      "source": "generated",
+      "provider": "edge"
+    },
+    "compound:60000": {
+      "path": "/audio/km/compounds/60000.mp3",
+      "bytes": 10388,
+      "durationMs": 803,
+      "source": "generated",
+      "provider": "edge"
+    },
+    "compound:70000": {
+      "path": "/audio/km/compounds/70000.mp3",
+      "bytes": 11015,
+      "durationMs": 859,
+      "source": "generated",
+      "provider": "edge"
+    },
+    "compound:80000": {
+      "path": "/audio/km/compounds/80000.mp3",
+      "bytes": 10702,
+      "durationMs": 824,
+      "source": "generated",
+      "provider": "edge"
+    },
+    "compound:90000": {
+      "path": "/audio/km/compounds/90000.mp3",
+      "bytes": 11015,
+      "durationMs": 844,
+      "source": "generated",
+      "provider": "edge"
+    },
+    "compound:100000": {
+      "path": "/audio/km/compounds/100000.mp3",
+      "bytes": 8821,
+      "durationMs": 669,
+      "source": "generated",
+      "provider": "edge"
+    },
+    "compound:200000": {
+      "path": "/audio/km/compounds/200000.mp3",
+      "bytes": 8507,
+      "durationMs": 638,
+      "source": "generated",
+      "provider": "edge"
+    },
+    "compound:300000": {
+      "path": "/audio/km/compounds/300000.mp3",
+      "bytes": 8507,
+      "durationMs": 635,
+      "source": "generated",
+      "provider": "edge"
+    },
+    "compound:400000": {
+      "path": "/audio/km/compounds/400000.mp3",
+      "bytes": 8821,
+      "durationMs": 672,
+      "source": "generated",
+      "provider": "edge"
+    },
+    "compound:500000": {
+      "path": "/audio/km/compounds/500000.mp3",
+      "bytes": 9448,
+      "durationMs": 723,
+      "source": "generated",
+      "provider": "edge"
+    },
+    "compound:600000": {
+      "path": "/audio/km/compounds/600000.mp3",
+      "bytes": 11328,
+      "durationMs": 865,
+      "source": "generated",
+      "provider": "edge"
+    },
+    "compound:700000": {
+      "path": "/audio/km/compounds/700000.mp3",
+      "bytes": 11955,
+      "durationMs": 926,
+      "source": "generated",
+      "provider": "edge"
+    },
+    "compound:800000": {
+      "path": "/audio/km/compounds/800000.mp3",
+      "bytes": 11642,
+      "durationMs": 898,
+      "source": "generated",
+      "provider": "edge"
+    },
+    "compound:900000": {
+      "path": "/audio/km/compounds/900000.mp3",
+      "bytes": 11955,
+      "durationMs": 930,
+      "source": "generated",
+      "provider": "edge"
+    },
+    "compound:1000000": {
+      "path": "/audio/km/compounds/1000000.mp3",
+      "bytes": 8194,
+      "durationMs": 613,
+      "source": "generated",
+      "provider": "edge"
+    },
+    "currency:riel": {
+      "path": "/audio/km/currency/riel.mp3",
+      "bytes": 5059,
+      "durationMs": 352,
+      "source": "generated",
+      "provider": "edge"
+    },
+    "currency:dollar": {
+      "path": "/audio/km/currency/dollar.mp3",
+      "bytes": 7253,
+      "durationMs": 525,
+      "source": "generated",
+      "provider": "edge"
+    },
+    "currency:cent": {
+      "path": "/audio/km/currency/cent.mp3",
+      "bytes": 5999,
+      "durationMs": 438,
+      "source": "generated",
+      "provider": "edge"
+    },
+    "connector:and": {
+      "path": "/audio/km/connectors/and.mp3",
+      "bytes": 5059,
+      "durationMs": 347,
+      "source": "generated",
+      "provider": "edge"
+    },
+    "phrase:confirm-prefix": {
+      "path": "/audio/km/phrases/confirm-prefix.mp3",
+      "bytes": 12582,
+      "durationMs": 981,
+      "source": "generated",
+      "provider": "edge"
+    },
+    "phrase:confirm-suffix": {
+      "path": "/audio/km/phrases/confirm-suffix.mp3",
+      "bytes": 11642,
+      "durationMs": 891,
+      "source": "generated",
+      "provider": "edge"
+    },
+    "phrase:received-prefix": {
+      "path": "/audio/km/phrases/received-prefix.mp3",
+      "bytes": 14150,
+      "durationMs": 1122,
+      "source": "generated",
+      "provider": "edge"
+    }
+  }
+}
