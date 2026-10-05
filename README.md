@@ -28,7 +28,11 @@ platform :ios, '13.0'
 use_frameworks!
 
 target 'YourApp' do
-  pod 'KhmerAmountSpeech', '~> 1.0'
+  use_frameworks!
+
+  pod 'KhmerAmountSpeech',
+      :git => 'https://github.com/many-pichr/ios-amount-tts.git',
+      :tag => '1.0.0'
 end
 ```
 
