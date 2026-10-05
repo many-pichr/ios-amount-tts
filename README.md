@@ -180,14 +180,4 @@ The catalog (`AudioCatalog`) and the reading rules match the
 swift test                                # unit tests and muted playback tests (macOS)
 pod lib lint --allow-warnings             # builds the pod and runs its tests on the iOS simulator
 ```
-
-### Releasing to CocoaPods
-
-1. Replace `your-org` in `KhmerAmountSpeech.podspec` (`homepage`, `source`) and in this README.
-2. Push the code to that repository and tag the release: `git tag 1.0.0 && git push --tags`.
-3. Publish: `pod trunk register you@example.com 'Your Name'` (first time only), then
-   `pod trunk push KhmerAmountSpeech.podspec --allow-warnings`.
-
-For a private pod, push the podspec to your private specs repo instead:
-`pod repo push your-specs KhmerAmountSpeech.podspec`.
 # ios-amount-tts
