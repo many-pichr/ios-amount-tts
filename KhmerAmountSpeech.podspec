@@ -10,10 +10,10 @@ Pod::Spec.new do |s|
     amount ever leaves the device.
   DESC
 
-  s.homepage         = 'https://github.com/your-org/KhmerAmountSpeech'
+  s.homepage         = 'https://github.com/many-pichr/ios-amount-tts'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'many.pichr' => 'many.pichr168@gmail.com' }
-  s.source           = { :git => 'https://github.com/your-org/KhmerAmountSpeech.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/many-pichr/ios-amount-tts.git', :tag => s.version.to_s }
 
   s.ios.deployment_target = '13.0'
   s.swift_versions   = ['5.9']

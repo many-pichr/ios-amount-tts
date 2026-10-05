@@ -165,6 +165,11 @@ recording session.
 The catalog (`AudioCatalog`) and the reading rules match the
 [khmer-amount-speech](../khmer-amount-speech) web app, so the same recordings work on both.
 
+## Example app
+
+`Example/` contains a SwiftUI demo app that has the Speak and Clips screens. See
+[Example/README.md](Example/README.md). To run it: `cd Example && pod install && open KhmerAmountSpeechExample.xcworkspace`.
+
 ## Development
 
 ```sh

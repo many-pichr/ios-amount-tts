@@ -5,3 +5,4 @@ DerivedData/
 Pods/
 *.xcworkspace
 xcuserdata/
+Example/build/
