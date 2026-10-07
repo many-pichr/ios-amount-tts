@@ -1,0 +1,25 @@
+name: KhmerAmountSpeechExample
+options:
+  bundleIdPrefix: com.example.khmeramountspeech
+  deploymentTarget:
+    iOS: "15.0"
+  createIntermediateGroups: true
+settings:
+  base:
+    SWIFT_VERSION: "5.9"
+    MARKETING_VERSION: "1.0"
+    CURRENT_PROJECT_VERSION: "1"
+targets:
+  KhmerAmountSpeechExample:
+    type: application
+    platform: iOS
+    sources: [KhmerAmountSpeechExample]
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.example.khmeramountspeech.demo
+        GENERATE_INFOPLIST_FILE: YES
+        INFOPLIST_KEY_CFBundleDisplayName: "Amount Speech"
+        INFOPLIST_KEY_UILaunchScreen_Generation: YES
+        INFOPLIST_KEY_UISupportedInterfaceOrientations: UIInterfaceOrientationPortrait
+        TARGETED_DEVICE_FAMILY: "1,2"
+        CODE_SIGN_STYLE: Automatic

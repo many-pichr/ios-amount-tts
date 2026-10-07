@@ -82,7 +82,7 @@ public final class KhmerAmountSpeaker {
     public var onTokenChange: ((Int?) -> Void)?
 
     /// Output sample rate of the composed utterance (the bundled clips are 44.1 kHz mono).
-    public static let sampleRate: Double = 44_100
+    nonisolated public static let sampleRate: Double = 44_100
 
     private let engine = AVAudioEngine()
     private let player = AVAudioPlayerNode()
@@ -133,21 +133,19 @@ public final class KhmerAmountSpeaker {
         guard !tokens.isEmpty else { return PlaybackResult(status: .completed, skipped: []) }
         state = .loading
 
-        let resolve = configuration.resolveURL
-        let loaded = await loader.load(tokens, resolveURL: resolve)
+        let sequence: RenderedSequence
+        let missing: [String]
+        do {
+            (sequence, missing) = try await composeUtterance(
+                tokens, loader: loader, options: configuration.render,
+                missingAssetPolicy: configuration.missingAssetPolicy, resolveURL: configuration.resolveURL
+            )
+        } catch {
+            if session == self.session { state = .idle }
+            throw error
+        }
         guard session == self.session else { return PlaybackResult(status: .stopped, skipped: []) }
 
-        let missing = loaded.filter(\.clips.isEmpty).map(\.token.id)
-        if !missing.isEmpty, configuration.missingAssetPolicy == .fail {
-            state = .idle
-            var seen = Set<String>()
-            throw MissingAudioError(missing: missing.filter { seen.insert($0).inserted })
-        }
-
-        let clips = loaded.enumerated().flatMap { index, item in
-            item.clips.map { SequenceRenderer.Clip(tokenIndex: index, samples: $0) }
-        }
-        let sequence = SequenceRenderer.render(clips, sampleRate: Self.sampleRate, options: configuration.render)
         guard let buffer = makeBuffer(sequence.samples) else {
             state = .idle
             return PlaybackResult(status: .completed, skipped: missing)

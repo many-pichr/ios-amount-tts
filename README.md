@@ -15,6 +15,7 @@ try await speaker.speak("1,250,000", currency: .khr)
   speaks its separate words instead.
 - **Khmer and English.** Khmer uses the formal reading (…ប្រាំម៉ឺន). English uses the short scale.
 - **Voice types:** amount only, confirm pay and received.
+- **WAV export.** Render any amount to WAV `Data` or a `.wav` file without playing it.
 - **Sample-accurate timing.** Each clip is trimmed, faded and joined into one buffer with a gap you can
   adjust or a crossfade, then played with `AVAudioEngine`.
 - KHR and USD (with cents), from 0 to 999,999,999,999.
@@ -78,6 +79,50 @@ utterance stops the one that's playing, so utterances never overlap.
 | `.amount`     | {{amount}}                             | {{amount}}                              |
 | `.confirmPay` | ទឹកប្រាក់ចំនួន{{amount}} សូមផ្ទៀងផ្ទាត់   | The amount is {{amount}}, please verify |
 | `.received`   | ទទួលប្រាក់ចំនួន{{amount}}                | Received {{amount}}                     |
+
+### Export as WAV (no playback)
+
+`AmountAudioExporter` produces the same audio that `KhmerAmountSpeaker` plays: mono, 44.1 kHz, with the
+same trimming, gaps and fallback for missing compound clips. It returns that audio as a `.wav` file or
+as `Data` instead of playing it. Use it to send the audio to a payment terminal, cache it per
+transaction, attach it to a notification sound, or play it with your own audio stack. You can call it
+from any thread.
+
+```swift
+let exporter = AmountAudioExporter()
+
+// Text to speech → WAV file path (written to <tmp>/KhmerAmountSpeech/<UUID>.wav)
+let fileURL = try await exporter.speechWAV("50,000", currency: .khr, voiceType: .received)
+let path = fileURL.path
+
+// Choose the folder and file name (".wav" is added if missing; an existing file is replaced)
+let docs = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+let saved = try await exporter.speechWAV("25.50", currency: .usd, language: .english,
+                                         directory: docs, fileName: "order-42")
+
+// In memory
+let wav: Data = try await exporter.wavData("1,250,000", currency: .khr)
+
+// To a file
+let url = FileManager.default.temporaryDirectory.appendingPathComponent("received.wav")
+try await exporter.writeWAV("50,000", currency: .khr, voiceType: .received, to: url)
+
+// From a prepared AmountSpeech
+let speech = try AmountSpeech("25.50", currency: .usd, language: .english, voiceType: .confirmPay)
+let data = try await exporter.wavData(for: speech)
+
+// Options
+let custom = AmountAudioExporter(
+    render: RenderOptions(gapMs: 20),   // the same timing options as playback
+    sampleFormat: .float32              // .pcm16 (default, most compatible) or .float32
+)
+
+// Raw samples, with each token's sample range
+let sequence = try await exporter.renderSequence(speech.tokens)
+sequence.samples, sequence.sampleRate, sequence.segments
+```
+
+To use the WAV as a local notification sound, write it to `Library/Sounds/` and keep it under 30 seconds.
 
 ### Text only (no audio)
 
@@ -163,7 +208,7 @@ recording session.
                                    │
    ClipLoader (decode + cache, compound → parts fallback) ─ SequenceRenderer (trim, fade, gap)
                                    │
-                    AVAudioEngine / AVAudioPlayerNode (one buffer)
+          AVAudioEngine (KhmerAmountSpeaker)  or  WAV Data / file (AmountAudioExporter)
 ```
 
 The catalog (`AudioCatalog`) and the reading rules match the

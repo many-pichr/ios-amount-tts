@@ -1,0 +1,16 @@
+PODS:
+  - KhmerAmountSpeech (1.0.0)
+
+DEPENDENCIES:
+  - KhmerAmountSpeech (from `../`)
+
+EXTERNAL SOURCES:
+  KhmerAmountSpeech:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  KhmerAmountSpeech: 7023d8dff082df8c9b8431c2d67164ad5e24e6a0
+
+PODFILE CHECKSUM: 80fca51c5001ab32bcb9b04cce3e8cd57563acc4
+
+COCOAPODS: 1.17.0

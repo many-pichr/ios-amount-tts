@@ -1,0 +1,7 @@
+platform :ios, '15.0'
+use_frameworks!
+
+target 'KhmerAmountSpeechExample' do
+  # Uses the library from this repository, exactly as an app would install the published pod.
+  pod 'KhmerAmountSpeech', :path => '../'
+end
