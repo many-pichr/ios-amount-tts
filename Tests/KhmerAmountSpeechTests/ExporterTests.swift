@@ -87,6 +87,34 @@ final class ExporterTests: XCTestCase {
         XCTAssertEqual(a, b)
     }
 
+    func testScaledSequence() {
+        let sequence = RenderedSequence(samples: [0.25, -0.5], sampleRate: 44_100, segments: [])
+        XCTAssertEqual(sequence.scaled(by: 0.5, preventClipping: true).samples, [0.125, -0.25])
+        XCTAssertEqual(sequence.scaled(by: 4, preventClipping: false).samples, [1, -2])
+        // Boost is capped where the peak reaches full scale.
+        XCTAssertEqual(sequence.scaled(by: 4, preventClipping: true).samples, [0.5, -1])
+        XCTAssertEqual(sequence.scaled(by: 1.5, preventClipping: true).samples, [0.375, -0.75])
+    }
+
+    func testVolumeScalesExportedAudio() async throws {
+        let speech = try AmountSpeech("50,000", currency: .khr, voiceType: .received)
+        let normal = try await AmountAudioExporter().renderSequence(speech.tokens)
+        let quiet = try await AmountAudioExporter(volume: 0.5).renderSequence(speech.tokens)
+        let loud = try await AmountAudioExporter(volume: 10).renderSequence(speech.tokens)
+        let peak = { (s: RenderedSequence) in s.samples.map(abs).max() ?? 0 }
+
+        XCTAssertEqual(quiet.samples.count, normal.samples.count)
+        XCTAssertEqual(quiet.segments, normal.segments)
+        XCTAssertEqual(peak(quiet), peak(normal) * 0.5, accuracy: 1e-6)
+        XCTAssertGreaterThan(peak(loud), peak(normal))
+        XCTAssertLessThanOrEqual(peak(loud), 1.0001)
+
+        let boosted = try await AmountAudioExporter(volume: 2).wavData(for: speech)
+        let original = try await AmountAudioExporter().wavData(for: speech)
+        XCTAssertEqual(boosted.count, original.count)
+        XCTAssertNotEqual(boosted, original)
+    }
+
     func testMissingAudioFailsByDefault() async {
         let exporter = AmountAudioExporter(resolveURL: { _ in nil })
         do {

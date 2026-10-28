@@ -17,10 +17,18 @@ public enum WAVSampleFormat: Sendable {
 ///     let exporter = AmountAudioExporter()
 ///     let wav = try await exporter.wavData("1,250,000", currency: .khr)               // Data
 ///     try await exporter.writeWAV("50,000", currency: .khr, voiceType: .received, to: fileURL)
+///
+///     let louder = AmountAudioExporter(volume: 2)                                      // ≈ +6 dB
 public final class AmountAudioExporter: Sendable {
     public let render: RenderOptions
     public let missingAssetPolicy: MissingAssetPolicy
     public let sampleFormat: WAVSampleFormat
+    /// Linear gain applied to the exported audio: 1 = unchanged (default), 0.5 ≈ -6 dB, 2 ≈ +6 dB.
+    /// Values above 1 boost the volume. Negative values are treated as 0.
+    public let volume: Float
+    /// When true (default), a boost is capped so the loudest sample just reaches full scale instead of
+    /// clipping (distorting). When false, samples past full scale are clipped in `.pcm16` output.
+    public let preventClipping: Bool
     private let resolveURL: @Sendable (AudioToken) -> URL?
     private let loader = ClipLoader(sampleRate: AmountAudioExporter.sampleRate)
 
@@ -31,11 +39,15 @@ public final class AmountAudioExporter: Sendable {
         render: RenderOptions = RenderOptions(),
         missingAssetPolicy: MissingAssetPolicy = .fail,
         sampleFormat: WAVSampleFormat = .pcm16,
+        volume: Float = 1,
+        preventClipping: Bool = true,
         resolveURL: @escaping @Sendable (AudioToken) -> URL? = AudioResources.bundledURL
     ) {
         self.render = render
         self.missingAssetPolicy = missingAssetPolicy
         self.sampleFormat = sampleFormat
+        self.volume = max(0, volume)
+        self.preventClipping = preventClipping
         self.resolveURL = resolveURL
     }
 
@@ -133,11 +145,25 @@ public final class AmountAudioExporter: Sendable {
 
     // MARK: Raw samples
 
-    /// The rendered utterance as mono Float samples, with the sample range of each token.
+    /// The rendered utterance as mono Float samples (with `volume` applied), with the sample range of each token.
     public func renderSequence(_ tokens: [AudioToken]) async throws -> RenderedSequence {
-        try await composeUtterance(
+        let sequence = try await composeUtterance(
             tokens, loader: loader, options: render, missingAssetPolicy: missingAssetPolicy, resolveURL: resolveURL
         ).sequence
+        return sequence.scaled(by: volume, preventClipping: preventClipping)
+    }
+}
+
+extension RenderedSequence {
+    /// The same sequence with every sample multiplied by `gain`. With `preventClipping`, a gain above 1
+    /// is reduced so the peak does not exceed full scale.
+    func scaled(by gain: Float, preventClipping: Bool) -> RenderedSequence {
+        var gain = gain
+        if preventClipping, gain > 1, let peak = samples.lazy.map(abs).max(), peak > 0 {
+            gain = min(gain, max(1, 1 / peak))
+        }
+        guard gain != 1 else { return self }
+        return RenderedSequence(samples: samples.map { $0 * gain }, sampleRate: sampleRate, segments: segments)
     }
 }
 

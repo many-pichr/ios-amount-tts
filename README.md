@@ -114,8 +114,14 @@ let data = try await exporter.wavData(for: speech)
 // Options
 let custom = AmountAudioExporter(
     render: RenderOptions(gapMs: 20),   // the same timing options as playback
-    sampleFormat: .float32              // .pcm16 (default, most compatible) or .float32
+    sampleFormat: .float32,             // .pcm16 (default, most compatible) or .float32
+    volume: 1.5                         // linear gain: 1 = unchanged (default), 0.5 ≈ -6 dB, 2 ≈ +6 dB
 )
+
+// Boost the volume. By default the boost stops where the loudest sample reaches full scale, so the
+// audio gets louder without distorting. Pass preventClipping: false to apply the full gain and clip peaks.
+let louder = AmountAudioExporter(volume: 2)
+let maxLoud = AmountAudioExporter(volume: 4, preventClipping: false)
 
 // Raw samples, with each token's sample range
 let sequence = try await exporter.renderSequence(speech.tokens)
