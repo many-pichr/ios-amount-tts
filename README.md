@@ -61,7 +61,7 @@ final class PaymentAnnouncer {
             try await speaker.speak("50,000", currency: .khr, voiceType: .received)
             // ទទួលប្រាក់ចំនួនប្រាំម៉ឺនរៀល
             try await speaker.speak("25.50", currency: .usd, language: .english, voiceType: .confirmPay)
-            // The amount is twenty-five dollars fifty cents, please verify
+            // The amount is twenty-five dollars fifty cents, please confirm
         } catch let error as AmountError {
             print(error.localizedDescription)      // invalid input
         } catch {
@@ -77,7 +77,7 @@ utterance stops the one that's playing, so utterances never overlap.
 | Voice type    | Khmer                                  | English                                 |
 | ------------- | -------------------------------------- | --------------------------------------- |
 | `.amount`     | {{amount}}                             | {{amount}}                              |
-| `.confirmPay` | ទឹកប្រាក់ចំនួន{{amount}} សូមផ្ទៀងផ្ទាត់   | The amount is {{amount}}, please verify |
+| `.confirmPay` | ទឹកប្រាក់ចំនួន{{amount}} សូមផ្ទៀងផ្ទាត់   | The amount is {{amount}}, please confirm |
 | `.received`   | ទទួលប្រាក់ចំនួន{{amount}}                | Received {{amount}}                     |
 
 ### Export as WAV (no playback)

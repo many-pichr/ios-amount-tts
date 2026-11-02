@@ -38,7 +38,7 @@ final class AmountSpeechTests: XCTestCase {
         XCTAssertEqual(try AmountSpeech("25.50", currency: .usd, voiceType: .received).text,
                        "ទទួលប្រាក់ចំនួនម្ភៃប្រាំដុល្លារ ហាសិបសេន")
         XCTAssertEqual(try AmountSpeech("1,000", currency: .khr, language: .english, voiceType: .confirmPay).text,
-                       "The amount is one thousand riel, please verify")
+                       "The amount is one thousand riel, please confirm")
         XCTAssertEqual(try AmountSpeech("1", currency: .usd, language: .english, voiceType: .received).text,
                        "Received one dollar")
     }

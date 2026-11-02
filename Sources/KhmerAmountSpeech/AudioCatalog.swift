@@ -171,7 +171,7 @@ public enum AudioCatalog {
 
     private static let enPhrases: [Seed] = [
         seed("confirm-prefix", "The amount is", "the amount is"),
-        seed("confirm-suffix", "please verify", "please verify"),
+        seed("confirm-suffix", "please confirm", "please confirm"),
         seed("received-prefix", "Received", "received"),
     ]
 

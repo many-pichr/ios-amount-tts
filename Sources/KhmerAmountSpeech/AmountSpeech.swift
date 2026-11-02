@@ -42,7 +42,7 @@ public enum CurrencyCode: String, CaseIterable, Sendable {
 /// | Voice type    | Khmer                                  | English                                 |
 /// | ------------- | -------------------------------------- | --------------------------------------- |
 /// | `.amount`     | {{amount}}                             | {{amount}}                              |
-/// | `.confirmPay` | ទឹកប្រាក់ចំនួន{{amount}} សូមផ្ទៀងផ្ទាត់   | The amount is {{amount}}, please verify |
+/// | `.confirmPay` | ទឹកប្រាក់ចំនួន{{amount}} សូមផ្ទៀងផ្ទាត់   | The amount is {{amount}}, please confirm |
 /// | `.received`   | ទទួលប្រាក់ចំនួន{{amount}}                | Received {{amount}}                     |
 public enum VoiceType: String, CaseIterable, Sendable {
     case amount
