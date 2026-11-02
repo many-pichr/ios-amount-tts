@@ -490,8 +490,8 @@
     },
     "currency:riel": {
       "path": "/audio/en/currency/riel.mp3",
-      "bytes": 6313,
-      "durationMs": 463,
+      "bytes": 7253,
+      "durationMs": 528,
       "source": "generated",
       "provider": "edge"
     },
